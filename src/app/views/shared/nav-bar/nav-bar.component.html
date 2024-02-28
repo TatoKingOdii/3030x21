@@ -1,0 +1,25 @@
+<ion-toolbar>
+  <ion-grid>
+    <ion-row class="ion-align-items-center ion-justify-content-between">
+      <ion-col size="auto">
+        <ion-title>30x30 Demo</ion-title>
+      </ion-col>
+      <ion-col size="auto" class="ion-text-center">
+        @if (authFacade.userLoggedIn$ | async) {
+          <ion-title>Welcome!</ion-title>
+        }
+      </ion-col>
+      <ion-col size="auto">
+        <ion-row class="ion-float-right">
+          @if (authFacade.userLoggedIn$ | async) {
+            <ion-button routerLink="/home">Home</ion-button>
+            <ion-button routerLink="/" (click)="authFacade.logout()">Logout</ion-button>
+          } @else {
+            <ion-button routerLink="/login">Login</ion-button>
+            <ion-button routerLink="/register">Register</ion-button>
+          }
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>
